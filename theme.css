@@ -1,0 +1,137 @@
+:root {
+    /* Light Theme Colors */
+    --light-background: #f4f4f4;
+    --light-text-primary: #333;
+    --light-text-secondary: #2c3e50;
+    --light-card-background: #ffffff;
+    --light-card-shadow: rgba(0, 0, 0, 0.1);
+    --light-border-color: #e0e0e0;
+    --light-primary-color: #3498db;
+    --light-primary-color-hover: #2980b9;
+    --light-secondary-color: #2ecc71;
+    --light-secondary-color-hover: #27ae60;
+    --light-input-background: #ffffff;
+    --light-input-border: #bdc3c7;
+
+    /* Dark Theme Colors */
+    --dark-background: #121212;
+    --dark-text-primary: #e0e0e0;
+    --dark-text-secondary: #b0b0b0;
+    --dark-card-background: #1e1e1e;
+    --dark-card-shadow: rgba(255, 255, 255, 0.1);
+    --dark-border-color: #333;
+    --dark-primary-color: #4a90e2;
+    --dark-primary-color-hover: #357abd;
+    --dark-secondary-color: #48db76;
+    --dark-secondary-color-hover: #3ac764;
+    --dark-input-background: #2a2a2a;
+    --dark-input-border: #444;
+
+    /* Default to Light Theme */
+    --background: var(--light-background);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --card-background: var(--light-card-background);
+    --card-shadow: var(--light-card-shadow);
+    --border-color: var(--light-border-color);
+    --primary-color: var(--light-primary-color);
+    --primary-color-hover: var(--light-primary-color-hover);
+    --secondary-color: var(--light-secondary-color);
+    --secondary-color-hover: var(--light-secondary-color-hover);
+    --input-background: var(--light-input-background);
+    --input-border: var(--light-input-border);
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --background: var(--dark-background);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --card-background: var(--dark-card-background);
+    --card-shadow: var(--dark-card-shadow);
+    --border-color: var(--dark-border-color);
+    --primary-color: var(--dark-primary-color);
+    --primary-color-hover: var(--dark-primary-color-hover);
+    --secondary-color: var(--dark-secondary-color);
+    --secondary-color-hover: var(--dark-secondary-color-hover);
+    --input-background: var(--dark-input-background);
+    --input-border: var(--dark-input-border);
+}
+
+/* Global Theme Styles */
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.theme-toggle i {
+    font-size: 24px;
+}
+
+/* Universal Element Theming */
+.card, .game-container {
+    background-color: var(--card-background);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+input, select, textarea {
+    background-color: var(--input-background);
+    color: var(--text-primary);
+    border: 2px solid var(--input-border);
+}
+
+/* Scrollbar Theming */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+body.dark-theme::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-hover);
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Game</title>
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Typing Speed Test</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-toggle-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="game-controls">
+            <div class="control-group">
+                <label for="difficultySelect">Difficulty:</label>
+                <select id="difficultySelect" class="select-style">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="durationSelect">Duration:</label>
+                <select id="durationSelect" class="select-style">
+                    <option value="30">30 seconds</option>
+                    <option value="60" selected>60 seconds</option>
+                    <option value="90">90 seconds</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="textSourceSelect">Text Source:</label>
+                <select id="textSourceSelect" class="select-style">
+                    <option value="quotes">Quotes</option>
+                    <option value="programming">Programming</option>
+                    <option value="science">Science</option>
+                    <option value="literature">Literature</option>
+                    <option value="custom">Custom Text</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="customTextContainer" class="custom-text-container" style="display: none;">
+            <textarea id="customTextInput" placeholder="Enter your custom text here (minimum 50 characters)..."></textarea>
+            <button id="useCustomTextBtn" class="button">Use Custom Text</button>
+        </div>
+
+        <div class="game-stats">
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span id="timer">60</span>s
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span id="wpm">0</span> WPM
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-bullseye"></i>
+                <span id="accuracy">100</span>%
+            </div>
+        </div>
+
+        <div class="text-display-container">
+            <div class="caret"></div>
+            <div id="textToType" class="text-to-type">
+                <span class="waiting">Start typing to begin...</span>
+            </div>
+        </div>
+
+        <div class="typing-info">
+            <div class="next-word">
+                <i class="fas fa-forward"></i>
+                Next: <span id="nextWord"></span>
+            </div>
+            <div class="typing-stats">
+                <span id="currentStreak">
+                    <i class="fas fa-fire"></i>
+                    Streak: 0
+                </span>
+                <span id="maxStreak">
+                    <i class="fas fa-trophy"></i>
+                    Best: 0
+                </span>
+            </div>
+        </div>
+
+        <textarea 
+            id="userInput" 
+            class="user-input" 
+            placeholder="Start typing here..." 
+            rows="4" 
+            disabled
+        ></textarea>
+
+        <div class="game-buttons">
+            <button id="startButton" class="button primary">
+                <i class="fas fa-play"></i> Start
+            </button>
+            <button id="restartButton" class="button" disabled>
+                <i class="fas fa-redo"></i> Restart
+            </button>
+            <button id="menuButton" class="button">
+                <i class="fas fa-home"></i> Menu
+            </button>
+        </div>
+
+        <div id="leaderboardContainer" class="leaderboard-container">
+            <h2><i class="fas fa-crown"></i> Leaderboard</h2>
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>WPM</th>
+                        <th>Accuracy</th>
+                        <th>Difficulty</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody"></tbody>
+            </table>
+        </div>
+
+        <div id="resultDisplay" class="result-display"></div>
+
+        <div id="nameEntryModal" class="modal">
+            <div class="modal-content">
+                <h2>New High Score!</h2>
+                <p>Enter your name to save your score:</p>
+                <input type="text" id="playerNameInput" maxlength="20" placeholder="Your name">
+                <div class="modal-buttons">
+                    <button id="saveScoreButton" class="button primary">Save Score</button>
+                    <button id="cancelScoreButton" class="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="window.location.href='../index.html'" class="menu-button">Return to Main Menu</button>
+    </div>
+
+    <script src="../theme.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
